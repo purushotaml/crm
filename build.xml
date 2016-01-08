@@ -155,7 +155,8 @@
  <target name="phpmd"
          unless="phpmd.done"
          description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
-  <exec executable="${phpmd}" taskname="phpmd">
+  <!-- <exec executable="${phpmd}" taskname="phpmd"> -->
+  <exec executable="phpmd${script-suffix}" taskname="phpmd">
    <arg path="${basedir}/src" />
    <arg value="text" />
    <arg path="${basedir}/build/phpmd.xml" />
@@ -168,7 +169,8 @@
          unless="phpmd.done"
          depends="prepare"
          description="Perform project mess detection using PHPMD and log result in XML format. Intended for usage within a continuous integration environment.">
-  <exec executable="${phpmd}" taskname="phpmd">
+  <!-- <exec executable="${phpmd}" taskname="phpmd"> -->
+  <exec executable="phpmd${script-suffix}" taskname="phpmd">
    <arg path="${basedir}/src" />
    <arg value="xml" />
    <arg path="${basedir}/build/phpmd.xml" />
@@ -182,7 +184,8 @@
  <target name="phpcs"
          unless="phpcs.done"
          description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
-  <exec executable="${phpcs}" taskname="phpcs">
+  <!-- <exec executable="${phpcs}" taskname="phpcs"> -->
+  <exec executable="phpcs${script-suffix}" taskname="phpcs">
    <arg value="--standard=PSR2" />
    <arg value="--extensions=php" />
    <arg value="--ignore=autoload.php" />
@@ -197,7 +200,8 @@
          unless="phpcs.done"
          depends="prepare"
          description="Find coding standard violations using PHP_CodeSniffer and log result in XML format. Intended for usage within a continuous integration environment.">
-  <exec executable="${phpcs}" output="/dev/null" taskname="phpcs">
+  <!-- <exec executable="${phpcs}" output="/dev/null" taskname="phpcs"> -->
+  <exec executable="phpcs${script-suffix}" output="/dev/null" taskname="phpcs">  
    <arg value="--report=checkstyle" />
    <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
    <arg value="--standard=PSR2" />
@@ -213,7 +217,8 @@
  <target name="phpcpd"
          unless="phpcpd.done"
          description="Find duplicate code using PHPCPD and print human readable output. Intended for usage on the command line before committing.">
-  <exec executable="${phpcpd}" taskname="phpcpd">
+  <!-- <exec executable="${phpcpd}" taskname="phpcpd"> -->
+  <exec executable="phpcpd${script-suffix}" taskname="phpcpd">
    <arg path="${basedir}/src" />
   </exec>
 
@@ -224,7 +229,8 @@
          unless="phpcpd.done"
          depends="prepare"
          description="Find duplicate code using PHPCPD and log result in XML format. Intended for usage within a continuous integration environment.">
-  <exec executable="${phpcpd}" taskname="phpcpd">
+  <!-- <exec executable="${phpcpd}" taskname="phpcpd"> -->
+  <exec executable="phpcpd${script-suffix}" taskname="phpcpd">
    <arg value="--log-pmd" />
    <arg path="${basedir}/build/logs/pmd-cpd.xml" />
    <arg path="${basedir}/src" />
@@ -237,7 +243,9 @@
          unless="phpunit.done"
          depends="prepare"
          description="Run unit tests with PHPUnit">
-  <exec executable="${phpunit}" resultproperty="result.phpunit" taskname="phpunit">
+<!--   <exec executable="${phpunit}" resultproperty="result.phpunit" taskname="phpunit">
+ -->  
+  <exec executable="phpunit${script-suffix}" resultproperty="result.phpunit" taskname="phpunit">
    <arg value="--configuration"/>
    <arg path="${basedir}/build/phpunit.xml"/>
   </exec>
@@ -249,7 +257,9 @@
          unless="phpunit.done"
          depends="prepare"
          description="Run unit tests with PHPUnit (without generating code coverage reports)">
-  <exec executable="${phpunit}" failonerror="true" taskname="phpunit">
+<!--   <exec executable="${phpunit}" failonerror="true" taskname="phpunit">
+ -->   
+  <exec executable="phpunit${script-suffix}" failonerror="true" taskname="phpunit">
    <arg value="--configuration"/>
    <arg path="${basedir}/build/phpunit.xml"/>
    <arg value="--no-coverage"/>
@@ -262,8 +272,9 @@
          unless="phpdox.done"
          depends="phploc-ci,phpcs-ci,phpmd-ci"
          description="Generate project documentation using phpDox">
-  <exec executable="${phpdox}" dir="${basedir}/build" taskname="phpdox"/>
-
+<!--   <exec executable="${phpdox}" dir="${basedir}/build" taskname="phpdox"/>
+ -->
+  <exec executable="phpdox${script-suffix}" dir="${basedir}/build" taskname="phpdox"/>
   <property name="phpdox.done" value="true"/>
  </target>
 
