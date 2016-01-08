@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="name-of-project" default="full-build">
+
+<condition property="script-suffix" value=".bat" else="">
+  <os family="windows" />
+</condition>
+
  <!-- By default, we assume all tools to be on the $PATH -->
  <property name="pdepend" value="pdepend"/>
  <property name="phpcpd"  value="phpcpd"/>
@@ -136,7 +141,8 @@
          unless="pdepend.done"
          depends="prepare"
          description="Calculate software metrics using PHP_Depend and log result in XML format. Intended for usage within a continuous integration environment.">
-  <exec executable="${pdepend}" taskname="pdepend">
+  <!-- <exec executable="${pdepend}" taskname="pdepend"> -->
+  <exec executable="pdepend${script-suffix}">
    <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml" />
    <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
    <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
