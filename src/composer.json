@@ -1,0 +1,5 @@
+{
+    "require": {
+		"phpUnit/phpUnit": "*"
+    }
+}
