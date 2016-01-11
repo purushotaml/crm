@@ -248,7 +248,7 @@
   <exec executable="phpunit${script-suffix} " resultproperty="result.phpunit" taskname="phpunit">
    <arg value="--stderr"/>
    <arg value="--configuration"/>
-   <arg path="${basedir}/src/test/phpunit.xml"/>
+   <arg path="${basedir}/src/tests/phpunit.xml"/>
   </exec>
 
   <property name="phpunit.done" value="true"/>
