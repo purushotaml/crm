@@ -97,7 +97,7 @@
     <modified />
    </fileset>
 
-   <fileset dir="${basedir}/src/tests">
+   <fileset dir="${basedir}/tests">
     <include name="**/*.php" />
     <modified />
    </fileset>
@@ -131,7 +131,7 @@
    <arg value="--log-xml" />
    <arg path="${basedir}/build/logs/phploc.xml" />
    <arg path="${basedir}/src" />
-   <arg path="${basedir}/src/tests" />
+   <arg path="${basedir}/tests" />
   </exec>
 
   <property name="phploc.done" value="true"/>
@@ -248,7 +248,7 @@
   <exec executable="phpunit${script-suffix} " resultproperty="result.phpunit" taskname="phpunit">
    <arg value="--stderr"/>
    <arg value="--configuration"/>
-   <arg path="${basedir}/src/tests/phpunit.xml"/>
+   <arg path="${basedir}/build/phpunit.xml"/>
   </exec>
 
   <property name="phpunit.done" value="true"/>
@@ -260,7 +260,7 @@
          description="Run unit tests with PHPUnit (without generating code coverage reports)">
 <!--   <exec executable="${phpunit}" failonerror="true" taskname="phpunit">
  -->   
-  <exec executable="phpunit${script-suffix} --stderr" failonerror="true" taskname="phpunit">
+  <exec executable="phpunit${script-suffix}" failonerror="true" taskname="phpunit">
    <arg value="--configuration"/>
    <arg path="${basedir}/build/phpunit.xml"/>
    <arg value="--no-coverage"/>
