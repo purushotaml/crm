@@ -260,7 +260,7 @@
          description="Run unit tests with PHPUnit (without generating code coverage reports)">
 <!--   <exec executable="${phpunit}" failonerror="true" taskname="phpunit">
  -->   
-  <exec executable="phpunit${script-suffix}" failonerror="true" taskname="phpunit">
+  <exec executable="phpunit${script-suffix} --stderr" failonerror="true" taskname="phpunit">
    <arg value="--configuration"/>
    <arg path="${basedir}/build/phpunit.xml"/>
    <arg value="--no-coverage"/>
