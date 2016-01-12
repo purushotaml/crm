@@ -127,11 +127,11 @@
    <arg value="/c" />
    <arg value="--count-tests" />
    <arg value="--log-csv" />
-   <arg path="&quot;${basedir}/build/logs/phploc.csv&quot;" />
+   <arg path="'${basedir}/build/logs/phploc.csv'" />
    <arg value="--log-xml" />
-   <arg path="&quot;${basedir}/build/logs/phploc.xml&quot;" />
-   <arg path="&quot;${basedir}/src&quot;" />
-   <arg path="&quot;${basedir}/tests&quot;" />
+   <arg path="'${basedir}/build/logs/phploc.xml'" />
+   <arg path="'${basedir}/src'" />
+   <arg path="'${basedir}/tests'" />
   </exec>
 
   <property name="phploc.done" value="true"/>
@@ -144,9 +144,9 @@
   <!-- <exec executable="${pdepend}" taskname="pdepend"> -->
   <exec executable="cmd" taskname="pdepend">
    <arg value="/c" />
-   <arg value="--jdepend-xml=&quot;${basedir}/build/logs/jdepend.xml&quot;" />
-   <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
-   <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
+   <arg value="--jdepend-xml='${basedir}/build/logs/jdepend.xml'" />
+   <arg value="--jdepend-chart='${basedir}/build/pdepend/dependencies.svg'" />
+   <arg value="--overview-pyramid='${basedir}/build/pdepend/overview-pyramid.svg'" />
    <arg path="${basedir}/src" />
   </exec>
 
