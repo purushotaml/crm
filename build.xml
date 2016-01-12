@@ -238,8 +238,6 @@
 	<target name="phpunit-no-coverage" unless="phpunit.done"
 		depends="prepare"
 		description="Run unit tests with PHPUnit (without generating code coverage reports)">
-        <!-- <exec executable="phpunit${script-suffix}" failonerror="true"
-			taskname="phpunit"> -->
 		<exec executable="cmd" failonerror="true"
 			taskname="phpunit">
 			<arg value="/c" />
@@ -253,10 +251,8 @@
 
 	<target name="phpdox" unless="phpdox.done" depends="phploc-ci,phpcs-ci,phpmd-ci"
 		description="Generate project documentation using phpDox">
-		<!-- <exec executable="${phpdox}" dir="${basedir}/build" taskname="phpdox"/> -->
 		<exec executable="cmd" dir="${basedir}/build" taskname="phpdox">
 			<arg value="/c" />
-
 		</exec>
 
 		<property name="phpdox.done" value="true" />
