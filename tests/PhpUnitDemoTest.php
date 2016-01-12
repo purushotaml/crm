@@ -2,7 +2,6 @@
 DEFINE("APPLICATION_HOME","E:\\xampp\\htdocs\\projects\crm\\");
 require_once APPLICATION_HOME.'src/vendor/autoload.php';
 require_once APPLICATION_HOME.'src/PhpUnitDemo.php';
-echo APPLICATION_HOME."its here";echo "\n";
 class PhpUnitDemoTest extends PHPUnit_Framework_TestCase
 {	
 	function testUnSignedNumber() {
