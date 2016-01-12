@@ -74,12 +74,8 @@
 <!-- Generate checkstyle.xml -->
 <target name="phpcs">
     <exec executable="cmd">
-        <arg line="/c phpcs
-            --report=checkstyle
-            --report-file='${basedir}/build/logs/checkstyle.xml'
-            --standard='${basedir}/docs/coding-standard/ruleset.xml'
-            -p
-            src" />
+        <arg line="/c phpcs --report=checkstyle  --report-file='${basedir}/build/logs/checkstyle.xml' --standard='${basedir}/docs/coding-standard/ruleset.xml'
+            -p '${basedir}/src' " />
     </exec>
 </target>
 
