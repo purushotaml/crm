@@ -98,10 +98,21 @@
 		<property name="lint.done" value="true" />
 	</target>
 
-	<target name="phploc" unless="phploc.done"
+<!-- 	<target name="phploc" unless="phploc.done"
 		description="Measure project size using PHPLOC and print human readable output. Intended for usage on the command line.">
 		<exec executable="cmd" taskname="phploc">
 			<arg value="/c" />
+			<arg value="--count-tests" />
+			<arg path="${basedir}/src" />
+			<arg path="${basedir}/tests" />
+		</exec>
+
+		<property name="phploc.done" value="true" />
+	</target> -->
+
+	<target name="phploc" unless="phploc.done"
+		description="Measure project size using PHPLOC and print human readable output. Intended for usage on the command line.">
+		<exec executable="${phploc}" taskname="phploc">
 			<arg value="--count-tests" />
 			<arg path="${basedir}/src" />
 			<arg path="${basedir}/tests" />
@@ -238,8 +249,7 @@
 	<target name="phpunit-no-coverage" unless="phpunit.done"
 		depends="prepare"
 		description="Run unit tests with PHPUnit (without generating code coverage reports)">
-		<exec executable="cmd" failonerror="true"
-			taskname="phpunit">
+		<exec executable="cmd" failonerror="true" taskname="phpunit">
 			<arg value="/c" />
 			<arg value="--configuration" />
 			<arg path="${basedir}/tests/phpunit.xml" />
