@@ -65,9 +65,7 @@
 <!-- Generate phploc.csv -->
 <target name="phploc">
     <exec executable="cmd">
-        <arg line="/c phploc
-            --log-csv '${basedir}/build/logs/phploc.csv'
-            src" />
+        <arg line="/c phploc --log-csv '${basedir}/build/logs/phploc.csv'  '${basedir}/src'" />
     </exec>
 </target>
 
