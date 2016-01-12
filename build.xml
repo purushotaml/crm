@@ -51,20 +51,14 @@
 <!-- Generate pmd.xml -->
 <target name="phpmd">
     <exec executable="cmd">
-        <arg line="/c phpmd src
-          xml
-          codesize,design,naming,unusedcode
-          --reportfile '${basedir}/build/logs/pmd.xml'
-          " />
+        <arg line="/c phpmd '${basedir}/src'  xml '${basedir}/build/phpmd.xml' --reportfile '${basedir}/build/logs/pmd.xml' " />
     </exec>
 </target>
 
 <!-- Generate pmd-cpd.xml -->
 <target name="phpcpd">
     <exec executable="cmd">
-        <arg line="/c phpcpd
-            --log-pmd '${basedir}/build/logs/pmd-cpd.xml'
-            src" />
+        <arg line="/c phpcpd --log-pmd '${basedir}/build/logs/pmd-cpd.xml' src" />
     </exec>
 </target>
 
