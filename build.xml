@@ -16,7 +16,7 @@
 <!-- Run unit tests and generate junit.xml and clover.xml -->
 <target name="phpunit">
     <exec executable="cmd">
-        <arg line="/c phpunit '${basedir}/tests'" />
+        <arg line="/c phpunit --configuration '${basedir}/tests/phpunit.xml'" />
     </exec>
 </target>
 
