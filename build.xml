@@ -203,7 +203,8 @@
 
 	<target name="phpcpd" unless="phpcpd.done"
 		description="Find duplicate code using PHPCPD and print human readable output. Intended for usage on the command line before committing.">
-		<exec executable="phpcpd${script-suffix}" taskname="phpcpd">
+		<exec executable="cmd" taskname="phpcpd">
+			<arg value="/c" />
 			<arg path="${basedir}/src" />
 		</exec>
 
