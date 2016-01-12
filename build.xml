@@ -144,7 +144,7 @@
   <!-- <exec executable="${pdepend}" taskname="pdepend"> -->
   <exec executable="cmd" taskname="pdepend">
    <arg value="/c" />
-   <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml" />
+   <arg value="--jdepend-xml=^${basedir}/build/logs/jdepend.xml" />
    <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
    <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
    <arg path="${basedir}/src" />
