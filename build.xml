@@ -51,11 +51,10 @@
 <!-- Generate pmd.xml -->
 <target name="phpmd">
     <exec executable="cmd">
-        <arg line="/c phpmd src,lib
+        <arg line="/c phpmd src
           xml
           codesize,design,naming,unusedcode
           --reportfile '${basedir}/build/logs/pmd.xml'
-          --exclude '${basedir}\lib\Zend\*'
           " />
     </exec>
 </target>
@@ -65,8 +64,7 @@
     <exec executable="cmd">
         <arg line="/c phpcpd
             --log-pmd '${basedir}/build/logs/pmd-cpd.xml'
-            --exclude '${basedir}/lib/Zend'
-            application lib" />
+            src" />
     </exec>
 </target>
 
@@ -75,8 +73,7 @@
     <exec executable="cmd">
         <arg line="/c phploc
             --log-csv '${basedir}/build/logs/phploc.csv'
-            --exclude '${basedir}/lib/Zend'
-            application lib" />
+            src" />
     </exec>
 </target>
 
@@ -87,9 +84,8 @@
             --report=checkstyle
             --report-file='${basedir}/build/logs/checkstyle.xml'
             --standard='${basedir}/docs/coding-standard/ruleset.xml'
-            --ignore=*\\lib\\Zend\\*
             -p
-            application lib" />
+            src" />
     </exec>
 </target>
 
@@ -97,7 +93,7 @@
 <target name="phpdoc">
     <exec executable="cmd">
         <arg line="/c phpdoc
-            --directory application lib
+            --directory src
             --target    '${basedir}/build/api'
             --ignore    '${basedir}/lib/Zend/*'
            " />
@@ -109,7 +105,6 @@
         <arg line="/c phpcb
           --log    '${basedir}/build/logs'
           --output '${basedir}/build/code-browser'
-          --ignore '${basedir}/lib/Zend'
           " />
 
     </exec>
