@@ -43,6 +43,7 @@
             --jdepend-chart='${basedir}/build/pdepend/dependencies.svg'
             --summary-xml='${basedir}/build/logs/jdepend-summary.xml'
             --overview-pyramid='${basedir}/build/pdepend/overview-pyramid.svg'
+            ' ${basedir}/src'
             " />
     </exec>
 </target>
@@ -54,6 +55,7 @@
           xml
           codesize,design,naming,unusedcode
           --reportfile '${basedir}/build/logs/pmd.xml'
+          --exclude '${basedir}\lib\Zend\*'
           " />
     </exec>
 </target>
