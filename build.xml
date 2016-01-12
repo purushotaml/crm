@@ -52,7 +52,7 @@
 <!-- Generate pmd.xml -->
 <target name="phpmd">
     <exec executable="cmd">
-        <arg line="/c phpmd application,lib
+        <arg line="/c phpmd src,lib
           xml
           codesize,design,naming,unusedcode
           --reportfile '${basedir}/build/logs/pmd.xml'
