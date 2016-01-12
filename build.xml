@@ -228,7 +228,6 @@
 		<!-- <exec executable="${phpunit}" resultproperty="result.phpunit" taskname="phpunit"> -->
 		<exec executable="cmd" resultproperty="result.phpunit" taskname="phpunit">
 			<arg value="/c" />
-			<arg value="--stderr" />
 			<arg value="--configuration" />
 			<arg path="${basedir}/tests/phpunit.xml" />
 		</exec>
