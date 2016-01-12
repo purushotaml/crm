@@ -238,8 +238,11 @@
 	<target name="phpunit-no-coverage" unless="phpunit.done"
 		depends="prepare"
 		description="Run unit tests with PHPUnit (without generating code coverage reports)">
-		<exec executable="phpunit${script-suffix}" failonerror="true"
+        <!-- <exec executable="phpunit${script-suffix}" failonerror="true"
+			taskname="phpunit"> -->
+		<exec executable="cmd" failonerror="true"
 			taskname="phpunit">
+			<arg value="/c" />
 			<arg value="--configuration" />
 			<arg path="${basedir}/tests/phpunit.xml" />
 			<arg value="--no-coverage" />
