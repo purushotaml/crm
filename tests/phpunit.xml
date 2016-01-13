@@ -15,7 +15,7 @@
 	</filter>
 	<groups>
 		<include>
-			<!--<group>error</group> -->
+			<!-- <group>error</group> -->
 		</include>
 		<exclude>
 			<group>fatal_error</group>
