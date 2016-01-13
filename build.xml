@@ -38,20 +38,15 @@
 <!-- Generate jdepend.xml and software metrics charts -->
 <target name="pdepend">
     <exec executable="cmd">
-        <arg line="/c pdepend
-            --jdepend-xml='${basedir}/build/logs/jdepend.xml'
-            --jdepend-chart='${basedir}/build/pdepend/dependencies.svg'
-            --summary-xml='${basedir}/build/logs/jdepend-summary.xml'
-            --overview-pyramid='${basedir}/build/pdepend/overview-pyramid.svg'
-            ' ${basedir}/src'
-            " />
+        <arg line="/c pdepend --jdepend-xml='${basedir}/build/logs/jdepend.xml' --jdepend-chart='${basedir}/build/pdepend/dependencies.svg'
+            --summary-xml='${basedir}/build/logs/jdepend-summary.xml' --overview-pyramid='${basedir}/build/pdepend/overview-pyramid.svg' ${basedir}/src" />
     </exec>
 </target>
 
 <!-- Generate pmd.xml -->
 <target name="phpmd">
     <exec executable="cmd">
-        <arg line="/c phpmd '${basedir}/src'  xml '${basedir}/docs/mess-detection/phpmd.xml' --reportfile '${basedir}/build/logs/pmd.xml' " />
+        <arg line="/c phpmd '${basedir}/src' xml '${basedir}/docs/mess-detection/phpmd.xml' --reportfile '${basedir}/build/logs/pmd.xml' " />
     </exec>
 </target>
 
