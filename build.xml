@@ -73,7 +73,7 @@
 <!-- Generate API documentation -->
 <target name="phpdoc">
     <exec executable="cmd">
-        <arg line="/c phpdoc --ignore='${basedir}/src/vendor' --directory '${basedir}/src' --target '${basedir}/build/api'" />
+        <arg line="/c phpdoc --ignore='${basedir}/src/vendor/*' --directory '${basedir}/src' --target '${basedir}/build/api'" />
     </exec>
 </target>
 
