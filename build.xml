@@ -39,35 +39,35 @@
 <target name="pdepend">
     <exec executable="cmd">
         <arg line="/c pdepend --jdepend-xml='${basedir}/build/logs/jdepend.xml' --jdepend-chart='${basedir}/build/pdepend/dependencies.svg'
-            --summary-xml='${basedir}/build/logs/jdepend-summary.xml' --overview-pyramid='${basedir}/build/pdepend/overview-pyramid.svg' ${basedir}/src" />
+            --summary-xml='${basedir}/build/logs/jdepend-summary.xml' --overview-pyramid='${basedir}/build/pdepend/overview-pyramid.svg' --ignore=vendor ${basedir}/src" />
     </exec>
 </target>
 
 <!-- Generate pmd.xml -->
 <target name="phpmd">
     <exec executable="cmd">
-        <arg line="/c phpmd '${basedir}/src' xml '${basedir}/docs/mess-detection/phpmd.xml' --reportfile '${basedir}/build/logs/pmd.xml' " />
+        <arg line="/c phpmd --ignore=vendor ${basedir}/src xml '${basedir}/docs/mess-detection/phpmd.xml' --reportfile '${basedir}/build/logs/pmd.xml' " />
     </exec>
 </target>
 
 <!-- Generate pmd-cpd.xml -->
 <target name="phpcpd">
     <exec executable="cmd">
-        <arg line="/c phpcpd --log-pmd '${basedir}/build/logs/pmd-cpd.xml' src" />
+        <arg line="/c phpcpd --log-pmd '${basedir}/build/logs/pmd-cpd.xml' --exclude=vendor ${basedir}/src" />
     </exec>
 </target>
 
 <!-- Generate phploc.csv -->
 <target name="phploc">
     <exec executable="cmd">
-        <arg line="/c phploc --log-csv '${basedir}/build/logs/phploc.csv'  '${basedir}/src'" />
+        <arg line="/c phploc --log-csv '${basedir}/build/logs/phploc.csv'  --exclude=vendor ${basedir}/src" />
     </exec>
 </target>
 
 <!-- Generate checkstyle.xml -->
 <target name="phpcs">
     <exec executable="cmd">
-        <arg line="/c phpcs --report=checkstyle  --report-file='${basedir}/build/logs/checkstyle.xml' --standard='${basedir}/docs/coding-standard/ruleset.xml'
+        <arg line="/c phpcs -ignore=vendor --report=checkstyle  --report-file='${basedir}/build/logs/checkstyle.xml' --standard='${basedir}/docs/coding-standard/ruleset.xml'
             -p '${basedir}/src' " />
     </exec>
 </target>
@@ -75,7 +75,7 @@
 <!-- Generate API documentation -->
 <target name="phpdoc">
     <exec executable="cmd">
-        <arg line="/c phpdoc --directory '${basedir}/src' --target    '${basedir}/build/api'" />
+        <arg line="/c phpdoc --ignore '${basedir}/src/vendor' --directory '${basedir}/src' --target '${basedir}/build/api'" />
     </exec>
 </target>
 
