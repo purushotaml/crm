@@ -26,7 +26,7 @@
     <parallel threadCount="1">
         <sequential>
             <antcall target="pdepend" />
-            <antcall target="phpmd" />
+            <!-- <antcall target="phpmd" /> -->
         </sequential>
         <antcall target="phpcpd" />
         <antcall target="phpcs" />
