@@ -46,7 +46,7 @@
 <!-- Generate pmd.xml -->
 <target name="phpmd">
     <exec executable="cmd">
-        <arg line="/c phpmd '${basedir}/src/PhpUnitDemo.php' xml '${basedir}/docs/mess-detection/phpmd.xml' --reportfile '${basedir}/build/logs/pmd.xml' " />
+        <arg line="/c phpmd ${basedir}/src/PhpUnitDemo.php xml ${basedir}/docs/mess-detection/phpmd.xml --reportfile ${basedir}/build/logs/pmd.xml" />
     </exec>
 </target>
 
