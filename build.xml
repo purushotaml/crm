@@ -80,11 +80,7 @@
 
 <target name="phpcb">
     <exec executable="cmd">
-        <arg line="/c phpcb
-          --log    '${basedir}/build/logs'
-          --output '${basedir}/build/code-browser'
-          " />
-
+        <arg line="/c phpcb --log '${basedir}/build/logs' --output '${basedir}/build/code-browser'" />
     </exec>
 </target>
 
